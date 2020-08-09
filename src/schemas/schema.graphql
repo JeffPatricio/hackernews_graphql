@@ -1,5 +1,4 @@
 type Query {
-  info: String!
   feed(filter: String, skip: Int, take: Int, orderBy: LinkOrderByInput): Feed!
 }
 
@@ -25,6 +24,7 @@ type User {
   name: String!
   email: String!
   links: [Link!]!
+  votes: [Vote!]!
 }
 
 type Link {
@@ -33,6 +33,7 @@ type Link {
   url: String!
   postedBy: User
   votes: [Vote!]!
+  createdAt: String!
 }
 
 type Subscription {
@@ -56,3 +57,5 @@ enum Sort {
   asc
   desc
 }
+
+scalar DateTime

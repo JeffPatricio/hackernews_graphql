@@ -8,7 +8,7 @@ async function signup(parent, args, context, info) {
   const token = jwt.sign({ userId: user.id }, APP_SECRET);
   return {
     token,
-    user,
+    user
   };
 }
 
@@ -24,12 +24,13 @@ async function login(parent, args, context, info) {
   const token = jwt.sign({ userId: user.id }, APP_SECRET);
   return {
     token,
-    user,
+    user
   };
 }
 
 function post(parent, args, context, info) {
   const userId = getUserId(context);
+  console.log('📚 Novo Post');
   const newLink = context.prisma.link.create({
     data: {
       url: args.url,
@@ -57,7 +58,7 @@ async function vote(parent, args, context, info) {
   const newVote = context.prisma.vote.create({
     data: {
       user: { connect: { id: userId } },
-      link: { connect: { id: Number(args.linkId) } },
+      link: { connect: { id: Number(args.linkId) } }
     }
   });
   context.pubsub.publish("NEW_VOTE", newVote);
@@ -68,5 +69,5 @@ module.exports = {
   signup,
   login,
   post,
-  vote,
+  vote
 };
