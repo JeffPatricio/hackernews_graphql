@@ -30,7 +30,6 @@ async function login(parent, args, context, info) {
 
 function post(parent, args, context, info) {
   const userId = getUserId(context);
-  console.log('📚 Novo Post');
   const newLink = context.prisma.link.create({
     data: {
       url: args.url,
