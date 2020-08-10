@@ -57,5 +57,3 @@ enum Sort {
   asc
   desc
 }
-
-scalar DateTime

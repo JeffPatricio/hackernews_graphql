@@ -1,27 +1,30 @@
-async function feed(parent, args, context, info) {
-  const where = args.filter ? {
-    OR: [
-      { description: { contains: args.filter } },
-      { url: { contains: args.filter } }
-    ]
-  }
-    : {};
+const feed = async (parent, { filter, skip, take, orderBy }, context, info) => {
+
+  const where = filter ?
+    {
+      OR: [
+        { description: { contains: filter } },
+        { url: { contains: filter } }
+      ]
+    } : {
+
+    };
 
   const links = await context.prisma.link.findMany({
     where,
-    skip: args.skip,
-    take: args.take,
-    orderBy: args.orderBy,
+    skip,
+    take,
+    orderBy,
   });
 
   const count = await context.prisma.link.count({ where });
 
   return {
     links,
-    count,
-  }
+    count
+  };
 }
 
 module.exports = {
   feed
-};
+}
