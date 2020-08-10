@@ -7,10 +7,10 @@ This project was developed with the technologies graphql-yoga and prism as being
 
 The project was developed using the following technologies:
 
-- [Node.js](https://nodejs.org/)
-- [Prisma](https://www.prisma.io/)
-- [Graphql-yoga](https://github.com/prisma-labs/graphql-yoga)
-- [Bcryptjs](https://www.npmjs.com/package/bcryptjs)
+- [nodejs](https://nodejs.org/)
+- [prisma](https://www.prisma.io/)
+- [graphql-yoga](https://github.com/prisma-labs/graphql-yoga)
+- [bcryptjs](https://www.npmjs.com/package/bcryptjs)
 - [jsonwebtoken](https://www.npmjs.com/package/jsonwebtoken)
 
 ## Minimal Requirements
